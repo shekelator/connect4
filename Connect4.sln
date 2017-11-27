@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect4", "Connect4\Connect4.csproj", "{FE8C02A0-F602-4704-93E5-333A5206A32E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect4.Tests", "Connect4.Tests\Connect4.Tests.csproj", "{8A0A18B0-EE51-4021-ADA2-3D08FA2F6568}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE8C02A0-F602-4704-93E5-333A5206A32E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE8C02A0-F602-4704-93E5-333A5206A32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE8C02A0-F602-4704-93E5-333A5206A32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE8C02A0-F602-4704-93E5-333A5206A32E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A0A18B0-EE51-4021-ADA2-3D08FA2F6568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A0A18B0-EE51-4021-ADA2-3D08FA2F6568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A0A18B0-EE51-4021-ADA2-3D08FA2F6568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A0A18B0-EE51-4021-ADA2-3D08FA2F6568}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05037E7B-A696-4850-8A4B-D458073AC483}
+	EndGlobalSection
+EndGlobal
