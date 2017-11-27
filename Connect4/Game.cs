@@ -12,4 +12,17 @@ namespace Connect4
             return Result.Invalid;
         }
     }
+
+    public enum Position
+    {
+        Open = 0,
+        Player1 = 1,
+        Player2 = 2
+    }
+
+    public enum CurrentPlayer
+    {
+        Player1 = 1,
+        Player2 = 2
+    }
 }
