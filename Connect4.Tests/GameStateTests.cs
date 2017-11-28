@@ -30,9 +30,17 @@ namespace Connect4.Tests
         [Fact]
         public void Player2GoesNext()
         {
-
             m_state.Move(2);
             Assert.Equal(CurrentPlayer.Player2, m_state.CurrentPlayerUp);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(8)]
+        [InlineData(17)]
+        public void InvalidMoveThrows(int move)
+        {
+            Assert.Throws<InvalidMoveException>(() => m_state.Move(move));
         }
     }
 }
