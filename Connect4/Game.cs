@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using SuccincT.Options;
 
@@ -16,6 +17,8 @@ namespace Connect4
                 foreach (var move in moves)
                 {
                     state.Move(move);
+                    Console.WriteLine("Move is {0}", move);
+                    Console.WriteLine(state.GetBoardAsString());
                 }
             }
             catch (InvalidMoveException)
@@ -34,6 +37,7 @@ namespace Connect4
         {
             return Option<CurrentPlayer>.None();
         }
+
     }
 
     public class InvalidMoveException : Exception { }

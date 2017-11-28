@@ -42,5 +42,16 @@ namespace Connect4.Tests
         {
             Assert.Throws<InvalidMoveException>(() => m_state.Move(move));
         }
+
+        [Theory]
+        [InlineData(1, "x x x x x x x \nx x x x x x x \nx x x x x x x \nx x x x x x x \n1 x x x x x x \n")]
+        [InlineData(7, "x x x x x x x \nx x x x x x x \nx x x x x x x \nx x x x x x x \nx x x x x x 1 \n")]
+        public void BoardPrintsCorrectly(int move, string expected)
+        {
+            m_state.Move(move);
+
+            var printed = m_state.GetBoardAsString();
+            Assert.Equal(expected, printed);
+        }
     }
 }

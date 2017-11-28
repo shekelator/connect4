@@ -41,5 +41,14 @@ namespace Connect4.Tests
 
             Assert.Equal("Player1", result.ToString());
         }
+
+        [Fact(Skip="TODO")]
+        public void TooManyMovesIsInvalid()
+        {
+            var moves = new List<int> {1, 1, 2, 2, 3, 3, 4, 2};
+            var result = m_game.Play(moves);
+
+            Assert.Equal(InvalidResult, result.ToString());
+        }
     }
 }
