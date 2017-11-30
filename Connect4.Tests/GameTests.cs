@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Xunit;
 
 namespace Connect4.Tests
@@ -49,6 +50,15 @@ namespace Connect4.Tests
             var result = m_game.Play(moves);
 
             Assert.Equal(InvalidResult, result.ToString());
+        }
+
+        [Fact]
+        public void CanBeADraw()
+        {
+            var moves = new List<int> {1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 3, 4, 4, 3, 3, 4, 6, 5, 7, 5, 6, 7, 6, 7, 5, 1, 2, 3, 4, 6, 5, 7, 7, 5, 6};
+            var result = m_game.Play(moves);
+
+            Assert.Equal("Draw", result.ToString());
         }
     }
 }

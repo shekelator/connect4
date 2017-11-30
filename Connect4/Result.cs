@@ -14,6 +14,7 @@ namespace Connect4
         public static Result Invalid => new Result("Invalid");
         public static Result Player1 => new Result("Player1");
         public static Result Player2 => new Result("Player2");
+        public static Result Draw => new Result("Draw");
 
         public override string ToString()
         {

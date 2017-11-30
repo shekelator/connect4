@@ -27,6 +27,8 @@ namespace Connect4
             }
         }
 
+        public bool BoardFilled => Rows.SelectMany(r => r).All(p => p != Position.Open);
+
         public Board()
         {
             Positions = new Position[BoardHeight,BoardWidth];
@@ -47,7 +49,7 @@ namespace Connect4
             }
 
             var zeroIndexedColumn = column - 1;
-            for (var i = BoardHeight - 1; i > 0; i--)
+            for (var i = BoardHeight - 1; i >= 0; i--)
             {
                 if (Positions[i, zeroIndexedColumn] != Position.Open) continue;
 

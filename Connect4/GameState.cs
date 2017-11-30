@@ -28,7 +28,12 @@ namespace Connect4
 
         public Option<Result> GetWinner()
         {
-            return Board.GetWinner();
+            var winner = Board.GetWinner();
+            if (!winner.HasValue && Board.BoardFilled)
+            {
+                return Option<Result>.Some(Result.Draw);
+            }
+            return winner;
         }
 
     }
