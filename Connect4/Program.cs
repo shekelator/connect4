@@ -7,7 +7,10 @@ namespace Connect4
         static void Main(string[] args)
         {
             var game = new Game();
-            game.Play(new[] {1, 1, 2, 2, 3, 5});
+            // var moves = new[] {1, 1, 2, 2, 3, 3, 4, 4};
+            var moves = new[] {1, 1, 2, 2, 3, 3, 5, 4, 5, 4};
+            var result = game.Play(moves);
+            Console.WriteLine(result.ToString());
             Console.ReadKey();
         }
     }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using SuccincT.Options;
 
 namespace Connect4
@@ -12,13 +9,18 @@ namespace Connect4
         public Result Play(IEnumerable<int> moves)
         {
             var state = new GameState();
+            Option<Result> winner;
             try
             {
                 foreach (var move in moves)
                 {
+                    winner = state.GetWinner();
+                    if (winner.HasValue)
+                    {
+                        throw new InvalidMoveException();
+                    }
+                    
                     state.Move(move);
-                    Console.WriteLine("Move is {0}", move);
-                    Console.WriteLine(state.GetBoardAsString());
                 }
             }
             catch (InvalidMoveException)
@@ -26,16 +28,10 @@ namespace Connect4
                 return Result.Invalid;
             }
 
-            return Evaluator(state).Match<Result>()
+            return state.GetWinner().Match<Result>()
                 .None().Do(Result.Invalid)
-                .Some().Where(x => x == CurrentPlayer.Player1).Do(Result.Player1)
-                .Some().Where(x => x == CurrentPlayer.Player2).Do(Result.Player2)
+                .Some().Do(x => x)
                 .Result();
-        }
-
-        public Option<CurrentPlayer> Evaluator(GameState state)
-        {
-            return Option<CurrentPlayer>.None();
         }
 
     }

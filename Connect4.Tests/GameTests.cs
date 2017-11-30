@@ -33,16 +33,16 @@ namespace Connect4.Tests
             Assert.Equal(InvalidResult, result.ToString());
         }
 
-        [Fact(Skip="TODO")]
-        public void GameCanBeWon()
+        [Theory]
+        [InlineData(new [] {1, 1, 2, 2, 3, 3, 4 }, "Player1")]
+        public void GameCanBeWon(int[] moves, string winner)
         {
-            var moves = new List<int> {1, 1, 2, 2, 3, 3, 4};
             var result = m_game.Play(moves);
 
-            Assert.Equal("Player1", result.ToString());
+            Assert.Equal(winner, result.ToString());
         }
 
-        [Fact(Skip="TODO")]
+        [Fact]
         public void TooManyMovesIsInvalid()
         {
             var moves = new List<int> {1, 1, 2, 2, 3, 3, 4, 2};

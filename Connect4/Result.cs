@@ -1,4 +1,6 @@
-﻿namespace Connect4
+﻿using System.Runtime.InteropServices.ComTypes;
+
+namespace Connect4
 {
     public class Result
     {
@@ -16,6 +18,23 @@
         public override string ToString()
         {
             return m_value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Result other)) return false;
+
+            return obj.ToString() == other.ToString();
+        }
+
+        protected bool Equals(Result other)
+        {
+            return string.Equals(m_value, other.m_value);
+        }
+
+        public override int GetHashCode()
+        {
+            return (m_value != null ? m_value.GetHashCode() : 0);
         }
     }
 }
