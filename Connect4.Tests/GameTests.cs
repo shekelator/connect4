@@ -60,5 +60,14 @@ namespace Connect4.Tests
 
             Assert.Equal("Draw", result.ToString());
         }
+
+        [Fact(Skip = "Diagonal doesn't yet work")]
+        public void CanWinWithDiagonal()
+        {
+            var moves = new List<int> {1, 2, 2, 3, 4, 3, 3, 4, 4, 5, 4};
+            var result = m_game.Play(moves);
+
+            Assert.Equal("Player1", result.ToString());
+        }
     }
 }

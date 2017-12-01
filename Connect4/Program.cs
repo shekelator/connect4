@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 
 namespace Connect4
 {
@@ -6,11 +8,27 @@ namespace Connect4
     {
         static void Main(string[] args)
         {
-            var game = new Game();
-            // var moves = new[] {1, 1, 2, 2, 3, 3, 4, 4};
-            var moves = new[] {1, 1, 2, 2, 3, 3, 5, 4, 5, 4};
-            var result = game.Play(moves);
-            Console.WriteLine(result.ToString());
+            var inputFile = args[0];
+            var outputFile = args[1];
+
+            string[] lines;
+            using (var inputStream = new StreamReader(inputFile))
+            {
+                lines = inputStream.ReadToEnd().Split('\n');
+            }
+
+            using (var outputStream = new StreamWriter(outputFile))
+            {
+                foreach (var line in lines)
+                {
+                    var moves = line.Split(' ').Select(int.Parse);
+                    var game = new Game();
+                    var result = game.Play(moves);
+                    outputStream.WriteLine(result.ToString());
+                }
+            }
+
+            Console.WriteLine($"Done. Output written to {outputFile}");
             Console.ReadKey();
         }
     }
